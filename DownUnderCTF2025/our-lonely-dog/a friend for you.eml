@@ -1,0 +1,88 @@
+Delivered-To: abdulhamid08565@gmail.com
+Received: by 2002:a05:7010:8d8e:b0:478:2a32:e9b9 with SMTP id gr14csp112657mdb;
+        Fri, 18 Jul 2025 04:08:01 -0700 (PDT)
+X-Received: by 2002:a05:6902:c13:b0:e8d:6f63:75c6 with SMTP id 3f1490d57ef6-e8d6f637720mr6498336276.5.1752836881750;
+        Fri, 18 Jul 2025 04:08:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1752836881; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CfEz1Es2X44L3c1hK7AOyIRvVWlRGQJBIyPYc7N/x++Rzo6n5fDfigigEiLqGj4Nwm
+         PJ/btfQ+DS7ZZDreaFkb5jI8qOmWr1uR8xGa9Bsf1tEPrRZRgelELc0LYWKoq9OZroo6
+         eswXSLbxPtOBKGZJd/6Lmk7pa2FGYGBBC8z+C2A3u2g9KdlC9u3fOnDh0LrdfuHrsPMm
+         mpZLGfCyJBBn1crheytZ/jteJS7WdVkjm4EQtctgwDd8tG38o06JlcNwD2onWzvZ4Tqt
+         konyNn2IRAltwHOyDRh5NdmiZCxcxGDWGQsxMzAZlvoyV/0+XR5RYMlZw9W9uftAqGpj
+         a0og==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:message-id:subject:to:from:references:in-reply-to
+         :auto-submitted:mime-version:dkim-signature;
+        bh=UCpSR5e/rBC68PS3eAoravvmUGI+5d4iRWbmuGIxgF0=;
+        fh=8oTT1QzNdYOUtT4plg0Pb+nJ2vTRKCfXjVqkCVDimSE=;
+        b=UWgIQ69JqSQ4n3aN8Pc1ZFVGFevK3QPYWLaHXtJ7l55qxAbNsLFr8ltSnAwfrRV8+o
+         fvQSZlesdhU0KMRDKAgxdSVW4mDytdm/v8nkt+/HmvtyFEWEICeGjxjEwW13OUfXM2S6
+         xz2IUJSWrkBQvKyaVG9CjPPNA9RetN2zbJkEM8aTSdMlg4yIsB1Fij2crsQWurU4/L4z
+         VW/2ALwjWSv5MqEMibiwVfeVJaT5yEYtmpAht9d9d2kXMyUcYullBUsRRwaV4YkXZe4n
+         QpoYlQXyf7BtDMoQPsaSM68bn1Pp4kV0d3VDQ2J3SW44gqMqc8nxa0fxwxq7vsTnGcSL
+         7Sqw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@downunderctf.com header.s=google header.b=dgi961ia;
+       spf=pass (google.com: domain of 3est6aa0qajo8-7ia+hil8jfs7iqhoh78l6n9.6ig@listserv.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ESt6aA0QAJo8-7IA+HIL8JFS7IQHOH78L6N9.6IG@listserv.bounces.google.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=downunderctf.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3ESt6aA0QAJo8-7IA+HIL8JFS7IQHOH78L6N9.6IG@listserv.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 3f1490d57ef6-e8d7cdf8de4sor546797276.4.2025.07.18.04.08.01
+        for <abdulhamid08565@gmail.com>
+        (Google Transport Security);
+        Fri, 18 Jul 2025 04:08:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3est6aa0qajo8-7ia+hil8jfs7iqhoh78l6n9.6ig@listserv.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@downunderctf.com header.s=google header.b=dgi961ia;
+       spf=pass (google.com: domain of 3est6aa0qajo8-7ia+hil8jfs7iqhoh78l6n9.6ig@listserv.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ESt6aA0QAJo8-7IA+HIL8JFS7IQHOH78L6N9.6IG@listserv.bounces.google.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=downunderctf.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=downunderctf.com; s=google; t=1752836881; x=1753441681; dara=google.com;
+        h=date:message-id:subject:to:from:references:in-reply-to
+         :auto-submitted:mime-version:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UCpSR5e/rBC68PS3eAoravvmUGI+5d4iRWbmuGIxgF0=;
+        b=dgi961iaIHIRaqytdTjXCF+4KvDFRSYZ9IgDA40Cxt5UEZ4JQWqdCW8px2wrPGjeK9
+         075mkLJx21noOOt+xcraTdsfZUovVovbX1tU4XgZmm/dhv49cq+3ejAdxsGVurhh1qBM
+         9KVVWNR5SLFRHVzxFvjIa3/ANHXC+BlW01mvuYhap93AApWhU5P8t/JIe+Gz0MwqKRMq
+         F0tgUgJHalNGpex6w1GIppt3DtGnarD5lpzokxZ5AOUAH3zrN9wot3pnaJ8o1FUz9U6h
+         22IzGHoWNQz5NOUVlrlpFRQl1uO1dEJlQxm7KLHtPrtRPNcBLLd2zy2a2KHc/BhGaB5a
+         woRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752836881; x=1753441681;
+        h=date:message-id:subject:to:from:references:in-reply-to
+         :auto-submitted:mime-version:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UCpSR5e/rBC68PS3eAoravvmUGI+5d4iRWbmuGIxgF0=;
+        b=INzjXuq/0cUiG4+vrfvuZBONvOAxnTcJR/DxpgJdFEnDicpjo0H9vKh3EiV3FPgFVD
+         pW0snfWdZupYTqRnF6QoYwlMT7Me+bkwZxM1J0D8F7mTctwHiRRI1W+a2/S0hg74U1eE
+         RK6I+7fPLkUW+H0Vh+fUAfldD/B49uR5ZS0+cBXIhdWOyvLnj13AgDEkvs67gSvVSiC1
+         R28rli3oxbgdJzvymAhDLFM9pHbEZ4SV6AByM2YGCxstT9R2ckWETF2rTqhKmuK5Eomg
+         U9SeDlzlF+XrIJGiBo7pcnF0MiQUpSAe1RFDxalAhln6RHZ0NxE6bJdbzijr6Q1I3x78
+         GUTw==
+X-Gm-Message-State: AOJu0Yzt0pS0q4X6jm3zI36zXFPBx6B6pM6VGZHqExGhNw6hbUyB1E5e
+	9r1ztuUErYyyD24Kqt4nCIktSRWi3GpGOa3Ts6YyjOZZnmYQ8EQlcIjoPIUSgdWLk+npWBEFkRm
+	Gp88HIPZPqv8/7bjG5j2Xw7MsWxrnK2UzhjGksRGGAal9Wl3hZsS5KrPq5nRexaZKDV91vwXaKc
+	ZQDkA27cOO/NUKL0dc9JQKls0PqeJZySqTWc5UxL1XrraUu+DEbhIMxLg=
+X-Google-Smtp-Source: AGHT+IGhlE3Pulq+peeeThvO1QCwSKzQ0BtPDTx7P7YH5J0kVIlwyaUFN6uZ07GWv7jHl3O0XFxU+67oFerUhtWCmHO0ivd0
+X-Received: by 2002:a05:6902:4901:b0:e8d:7904:f065 with SMTP id 3f1490d57ef6-e8d7904f551mr2708734276.15.1752836881274;
+        Fri, 18 Jul 2025 04:08:01 -0700 (PDT)
+MIME-Version: 1.0
+Auto-Submitted: auto-replied
+In-Reply-To: <CANpAbdB5ZHej=EM5mXwU=21Q6Z2rp+qYMAuxFGChjje-RWSx_w@mail.gmail.com>
+References: <CANpAbdB5ZHej=EM5mXwU=21Q6Z2rp+qYMAuxFGChjje-RWSx_w@mail.gmail.com>
+From: e-dog <e-dog+noreply@downunderctf.com>
+To: <abdulhamid08565@gmail.com>
+Subject: Re: a friend for you
+Message-ID: <000000000000a8510b063a32236c@google.com>
+Date: Fri, 18 Jul 2025 11:08:01 +0000
+Content-Type: text/plain; charset="UTF-8"
+X-FLAG: DUCTF{g00d-luCk-G3tT1nG-ThR0uGh-Al1s-Th3-eM41Ls}
+
+Hi,
+
+E-dog gets quite pupset when they can't find their bone, especially when it's been a ruff day. Maybe we need to pull out a new one for them?
